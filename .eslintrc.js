@@ -13,7 +13,13 @@ module.exports = {
     indent: ['error', 2],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        endOfLine: 'auto',
+      },
+    ],
   },
   ignorePatterns: ['03-files-in-folder/secret-folder/**/*.js'],
 };
