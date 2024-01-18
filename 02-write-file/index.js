@@ -14,7 +14,6 @@ let readlineInterface = readline.createInterface({
   output: process.stdout,
   prompt: '>',
 });
-// readlineInterface.prompt();
 let guestName = '';
 readlineInterface.question('What is your name? ', (answer) => {
   guestName = answer;
@@ -22,19 +21,12 @@ readlineInterface.question('What is your name? ', (answer) => {
   console.log('You can write');
   readlineInterface.prompt('>');
 });
-// readlineInterface.on('history', (input) => {
-//   console.log(input);
-//   if (!input.find((item) => item === 'exit')) {
-//     readlineInterface.prompt('>');
-//   }
-// });
 readlineInterface.on('line', (input) => {
   if (input.toLowerCase() === 'exit') {
     readlineInterface.close();
     return;
   }
   writeableStream.write(`${input}\n`);
-  console.log(input);
   readlineInterface.prompt('>');
 });
 
