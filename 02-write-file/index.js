@@ -1,11 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const pathFile = path.format({
-  root: '/',
-  base: 'hello.txt',
-  ext: 'ignored',
-});
-const url = __dirname + pathFile;
+
+const url = path.join(__dirname, 'hello.txt');
 const writeableStream = fs.createWriteStream(url);
 
 let readline = require('readline');

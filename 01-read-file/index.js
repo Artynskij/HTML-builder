@@ -1,11 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const pathFile = path.format({
-  root: '/',
-  base: 'text.txt',
-  ext: 'ignored',
-});
-const url = __dirname + pathFile;
+
+const url = path.join(__dirname, 'text.txt');
 
 fs.readFile(url, 'utf8', (err, data) => {
   if (err) throw err;
