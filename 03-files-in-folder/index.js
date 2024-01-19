@@ -10,7 +10,7 @@ function readFiles(url) {
     files.forEach((item) => {
       fs.stat(path.join(url, item), (err, stat) => {
         if (!stat.isFile()) return;
-        const size = stat.size;
+        const size = stat.size / 1000;
         const extname = path.extname(item);
         const name = path.win32.basename(item, extname);
         console.log(`${name} - ${extname.slice(1)} - ${size}kb`);
